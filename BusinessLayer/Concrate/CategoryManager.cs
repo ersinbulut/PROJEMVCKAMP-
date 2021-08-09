@@ -25,5 +25,8 @@ namespace BusinessLayer.Concrate
         {
             return _categoryDal.List();
         }
+
+
+
     }
 }
