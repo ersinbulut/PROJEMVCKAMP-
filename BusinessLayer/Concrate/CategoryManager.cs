@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrate.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrate.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,26 +10,20 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrate
 {
-    public class CategoryManager
+    /*CategoryManager üzerine gelip ctr + . yapılıp generate constractor seçilir*/
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
-        
-        public List<Category> GetAllBL()
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return repo.List();
-        }
-        public void CategoryAddBL(Category p)
-        {
-            if (p.CategoryName == "" || p.CategoryName.Length<=3 || p.CategoryDesctription=="" || p.CategoryName.Length>=51)
-            {
-                //hata mesajı
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+            _categoryDal = categoryDal;
         }
 
 
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
+        }
     }
 }
