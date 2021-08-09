@@ -20,11 +20,16 @@ namespace BusinessLayer.Concrate
             _categoryDal = categoryDal;
         }
 
+        public void CategoryAdd(Category category)
+        {
+            _categoryDal.Insert(category);
+        }
 
         public List<Category> GetList()
         {
             return _categoryDal.List();
         }
+
 
 
 
