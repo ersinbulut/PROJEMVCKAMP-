@@ -12,9 +12,11 @@ namespace DataAccessLayer.Abstract
         List<T> List();
 
         void Insert(T p);
+        //dışarıdan bir şart alıcak ama ne şartı olduğunu belirlemedik
+        T Get(Expression<Func<T, bool>> filter);//id si 5 olan yazarı döndürmek için bu method
         void Delete(T p);
         void Update(T p);
 
-        List<T> List(Expression<Func<T, bool>> filter);
+        List<T> List(Expression<Func<T, bool>> filter);//yazarlar içerisinde ismi ali olan yazarları döndürmek için bu method
     }
 }

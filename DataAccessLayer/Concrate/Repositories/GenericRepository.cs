@@ -25,6 +25,11 @@ namespace DataAccessLayer.Concrate.Repositories
             c.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> filter)
+        {//SingleOrDefault: bir dizide veya listede sadece bir değer döndürmek için kullanılan ef linq methodu
+            return _object.SingleOrDefault(filter);
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);

@@ -25,6 +25,21 @@ namespace BusinessLayer.Concrate
             _categoryDal.Insert(category);
         }
 
+        public void CategoryDelete(Category category)
+        {//IRepositorden gelen içerisi GenericRepository ile dolu olan delete methodu
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public Category GetByID(int id)
+        {//id den gelen değerin eşitliği kontrol edilir
+            return _categoryDal.Get(x => x.CategoryID == id);
+        }
+
         public List<Category> GetList()
         {
             return _categoryDal.List();
