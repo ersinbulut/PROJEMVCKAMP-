@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessLayer.Concrate;
+using DataAccessLayer.EntityFramework;
+using MvcProjeKampi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +14,7 @@ namespace MvcProjeKampi.Controllers
         // GET: İstatistik
         public ActionResult Index()
         {
-            return View();
+            return View( new State().GetModelStyle());
         }
     }
 }
