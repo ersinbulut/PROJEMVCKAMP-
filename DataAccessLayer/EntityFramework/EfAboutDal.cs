@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Concrate.Repositories;
+﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrate.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfAboutDal 
+    public class EfAboutDal : GenericRepository<About>, IAboutDal
     {
     }
 }

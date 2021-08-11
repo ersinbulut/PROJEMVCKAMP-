@@ -17,6 +17,8 @@ namespace EntityLayer.Concrete
         //content yazar : bu yazı kim tarafından yazıldı
         //content başlık: bu yazı hangi başlığa yazıldı
 
+        public bool ContentStatus { get; set; }
+
         public int HeadingID { get; set; }
         public virtual Heading Heading { get; set; }
 
