@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Concrate\Repositories\GenericRepository.cs" />
     <Compile Include="Concrate\Repositories\WriterRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
@@ -120,6 +122,10 @@
     <Compile Include="Migrations\202108111854001_mig_Admin_table.designer.cs">
       <DependentUpon>202108111854001_mig_Admin_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108112101108_mig_addaboutstatus.cs" />
+    <Compile Include="Migrations\202108112101108_mig_addaboutstatus.designer.cs">
+      <DependentUpon>202108112101108_mig_addaboutstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108111854001_mig_Admin_table.resx">
       <DependentUpon>202108111854001_mig_Admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108112101108_mig_addaboutstatus.resx">
+      <DependentUpon>202108112101108_mig_addaboutstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

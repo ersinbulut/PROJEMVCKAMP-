@@ -58,6 +58,9 @@
       <HintPath>..\packages\FluentValidation.10.3.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleCrypto, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -143,6 +146,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Controllers\İstatistikController.cs" />
@@ -152,6 +156,7 @@
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE\build\config\postcss.config.js" />
@@ -2015,6 +2020,16 @@
     <Content Include="AdminLTE\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE\starter.html" />
+    <Content Include="AdminLTE\web\css\style.css" />
+    <Content Include="AdminLTE\web\images\5.jpg" />
+    <Content Include="AdminLTE\web\images\img1.jpg" />
+    <Content Include="AdminLTE\web\images\sprite.png" />
+    <Content Include="AdminLTE\web\index.html" />
+    <Content Include="AdminLTE\web\js\bars.js" />
+    <Content Include="AdminLTE\web\js\easyResponsiveTabs.js" />
+    <Content Include="AdminLTE\web\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminLTE\web\js\jquery.circlechart.js" />
+    <Content Include="AdminLTE\web\w3layouts-License.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2437,6 +2452,7 @@
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Talent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

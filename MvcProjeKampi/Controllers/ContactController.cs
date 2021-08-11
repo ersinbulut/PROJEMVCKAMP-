@@ -31,6 +31,12 @@ namespace MvcProjeKampi.Controllers
         }
         public PartialViewResult MessageListMenu()
         {
+            var deger = db.Contacts.Count();
+            ViewBag.deger = deger;
+            var deger1 = db.Messages.Where(x=>x.ReceiverMail == "admin@gmail.com").Count().ToString();//alıcı maili admin olanların sayısı
+            ViewBag.deger1 = deger1;
+            var deger2 = db.Messages.Where(x => x.SenderMail == "admin@gmail.com").Count().ToString();//gönderici maili admin olanların sayısı
+            ViewBag.deger2 = deger2;
             return PartialView();
         }
     }
