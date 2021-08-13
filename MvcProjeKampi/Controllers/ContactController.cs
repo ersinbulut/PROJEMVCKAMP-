@@ -18,6 +18,7 @@ namespace MvcProjeKampi.Controllers
 
         Context db = new Context();
         // GET: Contact
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var contactvalue = cm.GetList();

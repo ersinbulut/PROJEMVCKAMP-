@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrate;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using MvcProjeKampi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager adm = new AdminManager(new EfAdminDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -30,23 +33,57 @@ namespace MvcProjeKampi.Controllers
 
             if (adminuserinfo != null)
             {
-                FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName,false);
-                Session["AdminUserName"] = adminuserinfo.AdminUserName;
-                return RedirectToAction("Index","AdminCategory");
+                //if (new LoginCheck().IsLoginSuccess(p))
+                //{
+                    FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
+                    Session["AdminUserName"] = adminuserinfo.AdminUserName;
+                    return RedirectToAction("Index", "AdminCategory");
+                //}
+              
             }
             else
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer p)
+        {
+            //Context c = new Context();
+            // var adminuserinfo = c.Admins.FirstOrDefault(x=>x.AdminUserName == p.AdminUserName && x.AdminUserPassword == p.AdminUserPassword);
+            var writeruserinfo = wm.GetList().FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+
+
+            if (writeruserinfo != null)
+            {
+                //if (new LoginCheck().IsLoginSuccess(p))
+                //{
+                FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
+                Session["WriterMail"] = writeruserinfo.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+                //}
+
+            }
+            else
+            {
+                return RedirectToAction("WriterLogin");
+            }
+        }
+
         //[HttpGet]
-        //public ActionResult KullaniciEkle()
+        //public ActionResult Register()
         //{
         //    return View();
         //}
         //[HttpPost]
-        //public ActionResult KullaniciEkle(Admin adminModel)
+        //public ActionResult Register(Admin adminModel)
         //{
         //    Context c = new Context();
 
@@ -57,13 +94,14 @@ namespace MvcProjeKampi.Controllers
 
         //    int result = 0;
 
-        //    if (adminModel.AdminID == 0)
+        //    if (adminModel.AdminID == result)
         //    {
         //        User.AdminUserName = adminModel.AdminUserName;
-        //        User.AdminUserPassword = adminModel.AdminUserPassword;
-        //        //User.Salt =adminModel.Salt
+        //        User.AdminUserPassword = encrypedPassword;
+        //        User.Salt = crypto.Salt;
         //        c.Admins.Add(User);
         //        c.SaveChanges();
+        //        return RedirectToAction("Index");
         //    }
 
         //    return View();

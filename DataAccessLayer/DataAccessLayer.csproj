@@ -126,6 +126,10 @@
     <Compile Include="Migrations\202108112101108_mig_addaboutstatus.designer.cs">
       <DependentUpon>202108112101108_mig_addaboutstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108120542533_mig_Admin_Class_Poroperty_Add.cs" />
+    <Compile Include="Migrations\202108120542533_mig_Admin_Class_Poroperty_Add.designer.cs">
+      <DependentUpon>202108120542533_mig_Admin_Class_Poroperty_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108112101108_mig_addaboutstatus.resx">
       <DependentUpon>202108112101108_mig_addaboutstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108120542533_mig_Admin_Class_Poroperty_Add.resx">
+      <DependentUpon>202108120542533_mig_Admin_Class_Poroperty_Add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

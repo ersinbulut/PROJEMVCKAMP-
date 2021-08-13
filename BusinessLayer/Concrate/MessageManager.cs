@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrate
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");//amine göre getirir
         }
 
         public List<Message> GetListSendbox()
