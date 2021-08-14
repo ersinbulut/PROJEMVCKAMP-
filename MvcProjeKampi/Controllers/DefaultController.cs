@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        ContentManager cm = new ContentManager(new EfContentDal());
         public ActionResult Headings()
         {
             var headinglist = hm.GetList();
@@ -19,9 +21,10 @@ namespace MvcProjeKampi.Controllers
 
 
         // GET: Default
-        public ActionResult Index()
+        public PartialViewResult Index(int id = 0)
         {
-            return View();
+            var contentlist = cm.GetListByHeadingID(id);
+            return PartialView(contentlist);
         }
     }
 }

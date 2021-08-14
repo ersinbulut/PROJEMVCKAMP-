@@ -17,6 +17,7 @@ namespace MvcProjeKampi.Controllers
     {
         AdminManager adm = new AdminManager(new EfAdminDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterLoginManager wlm = new WriterLoginManager(new EfWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -58,8 +59,8 @@ namespace MvcProjeKampi.Controllers
         {
             //Context c = new Context();
             // var adminuserinfo = c.Admins.FirstOrDefault(x=>x.AdminUserName == p.AdminUserName && x.AdminUserPassword == p.AdminUserPassword);
-            var writeruserinfo = wm.GetList().FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
-
+            //var writeruserinfo = wm.GetList().FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            var writeruserinfo = wlm.GetWriter(p.WriterMail, p.WriterPassword);
 
             if (writeruserinfo != null)
             {
@@ -75,6 +76,13 @@ namespace MvcProjeKampi.Controllers
             {
                 return RedirectToAction("WriterLogin");
             }
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
 
         //[HttpGet]
