@@ -1,4 +1,5 @@
-﻿using MvcProjeKampi.Models;
+﻿using EntityLayer.Concrete;
+using MvcProjeKampi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,34 @@ namespace MvcProjeKampi.Controllers
                 CategoryName = "Spor",
                 CategoryCount = 1
             });
+            return ct;
+        }
+
+        //----------------
+        public ActionResult Index2()
+        {
+            return View();
+        }
+
+        public ActionResult HeadingChart()
+        {
+            return Json(HeadingList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public List<HeadingClass> HeadingList()
+        {
+            List<HeadingClass> ct = new List<HeadingClass>();
+            ct.Add(new HeadingClass()
+            {
+                HeadingName = "Breaking Bad",
+                HeadingCount = 3
+            });
+            ct.Add(new HeadingClass()
+            {
+                HeadingName = "Green Book",
+                HeadingCount = 1
+            });
+
             return ct;
         }
     }
