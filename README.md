@@ -1,6 +1,10 @@
 # PROJEMVCKAMP-
 MURAT YÜCEDAĞ MVC PROJE KAMPI
 VERİ TABANI YEDEK : https://drive.google.com/file/d/1A30z30MsriFqZ6KD3XLv7mWWPgCrQ0Kd/view?usp=sharing
+
+
+
+
 MVC 
 3 Temel yapıya dayanır:
 MODEL: İşin veritabanı na ait entity dediğimiz kısımlarının tanımlandığı kısım
